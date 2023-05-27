@@ -1,13 +1,9 @@
 import pyglet
-import dotenv
-import os
-dotenv.load_dotenv('.env')
-WIDTH = os.environ.get('WIDTH')
-HEIGHT = os.environ.get('HEIGHT')
+import settings
 
 windowGame = pyglet.window.Window()
-windowGame.width = WIDTH
-windowGame.height = HEIGHT
+windowGame.width = settings.config['width']
+windowGame.height = settings.config['height']
 
 @windowGame.event
 def on_draw():
