@@ -1,18 +1,14 @@
 from scene_configuration import config, colors, sprites, walls
 import pyglet
 
-# ---
 # Display
-# ---
 displayWidth = config['width']
 displayHeight = config['height']
 display = pyglet.window.Window(displayWidth, displayHeight)
 display.set_caption('Mini Golf')
 
-# ---
 # Sprites
-# ---
-background = pyglet.shapes.Rectangle(0,0,displayWidth,displayHeight,colors['greenColor'])
+background = pyglet.shapes.Rectangle(0,0,displayWidth,displayHeight,colors['darkGreen'])
 
 @display.event
 def on_draw():
