@@ -8,7 +8,7 @@ display = pyglet.window.Window(displayWidth, displayHeight)
 display.set_caption('Mini Golf')
 
 # Sprites
-background = pyglet.shapes.Rectangle(0,0,displayWidth,displayHeight,colors['darkGreen'])
+background = pyglet.shapes.Rectangle(0,0,displayWidth,displayHeight,colors['lightGreen'])
 
 @display.event
 def on_draw():
