@@ -1,5 +1,4 @@
 from scene_configuration import config, colors, sprites, walls
-from sprites.sprite_ball import Ball
 import pyglet
 
 # Display
