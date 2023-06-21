@@ -1,7 +1,6 @@
 from scene_configuration import config, colors, sprites, walls,keys
 import pyglet
 
-
 # Display
 displayWidth = config['width']
 displayHeight = config['height']
@@ -24,13 +23,19 @@ def on_draw():
 @display.event
 def on_key_press(symbol, modifiers):
     if(symbol == keys['upArrow']):
-        print('going up to the sky')
+        direction = 1
     elif(symbol == keys['downArrow']):
-        print('going down to the ground')
+        direction = -1
     elif(symbol == keys['leftArrow']):
-        print('going to the left')
+        direction = 3
     elif(symbol == keys['rightArrow']):
-        print('going to the right')
+        direction = 4
+
+    match direction:
+        case -1:
+            ball.y += 1
+        case 1:
+            ball.y -= 1
 pyglet.app.run()
 
 #TODO
