@@ -10,10 +10,10 @@ display.set_caption('Mini Golf')
 # Sprites
 ballSprite = pyglet.image.load(sprites['ballOneSprite'])
 background = pyglet.shapes.Rectangle(0,0,displayWidth,displayHeight,colors['lightGreen'])
-
+moving = False
 # Instancies
-ball = pyglet.sprite.Sprite(ballSprite, 0, 0)
-
+ball = pyglet.sprite.Sprite(ballSprite, displayWidth/2, displayHeight/2)
+tick = pyglet.clock.Clock()
 @display.event
 def on_draw():
     display.clear()
@@ -23,20 +23,25 @@ def on_draw():
 @display.event
 def on_key_press(symbol, modifiers):
     if(symbol == keys['upArrow']):
-        direction = 1
+        direction = 'up'
     elif(symbol == keys['downArrow']):
-        direction = -1
+        direction = 'down'
     elif(symbol == keys['leftArrow']):
-        direction = 3
+        direction = 'left'
     elif(symbol == keys['rightArrow']):
-        direction = 4
-
+        direction = 'right'
+    else:
+        direction = ''
+    
     match direction:
-        case -1:
-            ball.y += 1
-        case 1:
-            ball.y -= 1
-pyglet.app.run()
-
+        case 'up':
+            ball.y += 1 * 2
+        case 'down':
+            ball.y -= 1 * 2
+        case 'left':
+            ball.x -= 1 * 2
+        case 'right':
+            ball.x += 1 * 2
+pyglet.app.run(60/1000)
 #TODO
 # Make Graphics
