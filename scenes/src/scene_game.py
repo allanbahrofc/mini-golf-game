@@ -22,6 +22,15 @@ while isRunning:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 isRunning = False
+            elif event.key == K_DOWN:
+                player_pos.y -= 1
+            elif event.key == K_UP:
+                player_pos.y += 1
+            elif event.key == K_LEFT:
+                player_pos.x -= 1
+            elif event.key == K_RIGHT:
+                player_pos.x += 1
+
         elif event.type == QUIT:
             isRunning = False
 
