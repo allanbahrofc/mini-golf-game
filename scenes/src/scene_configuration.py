@@ -34,9 +34,3 @@ walls = {
     'leftBottomSideWall': '../res/tiles/wallBottomLeft.png',
     'rightBottomSideWall': '../res/tiles/wallBottomRight.png',
 }
-keys = {
-    'upArrow': 65362,
-    'leftArrow': 65361,
-    'rightArrow': 65363,
-    'downArrow': 65364,
-}

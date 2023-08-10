@@ -1,5 +1,6 @@
-from scene_configuration import config, colors, sprites, walls, keys
+from scene_configuration import config, colors, sprites, walls
 import pygame
+import random
 from pygame.locals import (
     K_UP,
     K_DOWN,
@@ -7,6 +8,7 @@ from pygame.locals import (
     K_RIGHT,
     K_ESCAPE,
     KEYDOWN,
+    KEYUP,
     QUIT,
 )
 
@@ -15,12 +17,12 @@ title = pygame.display.set_caption('Mini Golf')
 screen = pygame.display.set_mode([config['width'], config['height']])
 
 # Instance (player)
-player_sprite = pygame.image.load('../res/sprites/Ball1.png')
+player_sprite = pygame.image.load(sprites['ballOneSprite'])
 player_pos = pygame.Vector2(config['windowMain'])
-
 # Instance (holes)
-holes_sprite = pygame.image.load('../res/sprites/Hole1.png')
-holes_pos = pygame.Vector2(12, 12)
+holes_sprite = pygame.image.load(sprites['holeOneSprite'])
+holes_pos = pygame.Vector2(random.randint(
+    0, config['width']), random.randint(0, config['height']))
 
 clock = pygame.time.Clock()
 isRunning = True
@@ -29,15 +31,25 @@ while isRunning:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 isRunning = False
-            elif event.key == K_DOWN:
-                player_pos.y -= 1
             elif event.key == K_UP:
                 player_pos.y += 1
+            elif event.key == K_DOWN:
+                player_pos.y -= 1
             elif event.key == K_LEFT:
-                player_pos.x -= 1
-            elif event.key == K_RIGHT:
                 player_pos.x += 1
+            elif event.key == K_RIGHT:
+                player_pos.x -= 1
 
+        elif event.type == KEYUP:
+            if event.key == K_UP:
+                player_pos.y += 0
+            elif event.key == K_DOWN:
+                player_pos.y -= 0
+            elif event.key == K_LEFT:
+                player_pos.x += 0
+            elif event.key == K_RIGHT:
+                player_pos.x -= 0
+        
         elif event.type == QUIT:
             isRunning = False
 
