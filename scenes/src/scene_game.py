@@ -32,29 +32,19 @@ while isRunning:
             if event.key == K_ESCAPE:
                 isRunning = False
             elif event.key == K_UP:
-                player_pos.y += 1
+                player_pos.y += 1*10
             elif event.key == K_DOWN:
-                player_pos.y -= 1
+                player_pos.y -= 1*10
             elif event.key == K_LEFT:
-                player_pos.x += 1
+                player_pos.x += 1*10
             elif event.key == K_RIGHT:
-                player_pos.x -= 1
+                player_pos.x -= 1*10
 
-        elif event.type == KEYUP:
-            if event.key == K_UP:
-                player_pos.y += 0
-            elif event.key == K_DOWN:
-                player_pos.y -= 0
-            elif event.key == K_LEFT:
-                player_pos.x += 0
-            elif event.key == K_RIGHT:
-                player_pos.x -= 0
-        
         elif event.type == QUIT:
             isRunning = False
 
-        screen.fill(colors['darkGreen'])
-        player = screen.blit(player_sprite, player_pos)
-        hole = screen.blit(holes_sprite, holes_pos)
-        pygame.display.update()
-        clock.tick(60)
+    screen.fill(colors['darkGreen'])
+    hole = screen.blit(holes_sprite, holes_pos)
+    player = screen.blit(player_sprite, player_pos)
+    pygame.display.update()
+    clock.tick(60)
