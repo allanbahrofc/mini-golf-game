@@ -1,47 +1,30 @@
-from scene_configuration import config, colors, sprites, walls,keys
-import pyglet
+from scene_configuration import config, colors, sprites, walls, keys
+import pygame
+from pygame.locals import (
+    K_UP,
+    K_DOWN,
+    K_LEFT,
+    K_RIGHT,
+    K_ESCAPE,
+    KEYDOWN,
+    QUIT,
+)
 
-# Display
-displayWidth = config['width']
-displayHeight = config['height']
-display = pyglet.window.Window(displayWidth, displayHeight)
-display.set_caption('Mini Golf')
+pygame.init()
+title = pygame.display.set_caption('Mini Golf')
+screen = pygame.display.set_mode([config['width'], config['height']])
+player = pygame.image.load('../res/sprites/Ball1.png')
+clock = pygame.time.Clock()
+isRunning = True
+while isRunning:
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                isRunning = False
+        elif event.type == QUIT:
+            isRunning = False
 
-# Sprites
-ballSprite = pyglet.image.load(sprites['ballOneSprite'])
-background = pyglet.shapes.Rectangle(0,0,displayWidth,displayHeight,colors['lightGreen'])
-moving = False
-# Instancies
-ball = pyglet.sprite.Sprite(ballSprite, displayWidth/2, displayHeight/2)
-tick = pyglet.clock.Clock()
-@display.event
-def on_draw():
-    display.clear()
-    background.draw()
-    ball.draw()
-
-@display.event
-def on_key_press(symbol, modifiers):
-    if(symbol == keys['upArrow']):
-        direction = 'up'
-    elif(symbol == keys['downArrow']):
-        direction = 'down'
-    elif(symbol == keys['leftArrow']):
-        direction = 'left'
-    elif(symbol == keys['rightArrow']):
-        direction = 'right'
-    else:
-        direction = ''
-    
-    match direction:
-        case 'up':
-            ball.y += 1 * 2
-        case 'down':
-            ball.y -= 1 * 2
-        case 'left':
-            ball.x -= 1 * 2
-        case 'right':
-            ball.x += 1 * 2
-pyglet.app.run(60/1000)
-#TODO
-# Make Graphics
+        screen.fill(colors['lightGreen'])
+        screen.blit(player, config['windowMain'])
+        pygame.display.update()
+        clock.tick(60)

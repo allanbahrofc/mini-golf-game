@@ -5,15 +5,16 @@ env = load_dotenv('../../.env')
 
 config = {
     'width': int(os.environ.get('width')),
-    'height': int(os.environ.get('height'))
+    'height': int(os.environ.get('height')),
+    'windowMain': (int(os.environ.get('width'))/2, int(os.environ.get('height'))/2)
 }
 
 colors = {
-    'lightGreen': (113,247,159),
-    'lightSalmon': (243,211,189),
-    'lightPurple': (139,114,142),
-    'darkGreen': (74,124,89),
-    'darkPurple': (34,3,31)
+    'lightGreen': (113, 247, 159),
+    'lightSalmon': (243, 211, 189),
+    'lightPurple': (139, 114, 142),
+    'darkGreen': (74, 124, 89),
+    'darkPurple': (34, 3, 31)
 }
 
 sprites = {
