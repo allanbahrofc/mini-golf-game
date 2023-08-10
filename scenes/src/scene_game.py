@@ -13,8 +13,15 @@ from pygame.locals import (
 pygame.init()
 title = pygame.display.set_caption('Mini Golf')
 screen = pygame.display.set_mode([config['width'], config['height']])
+
+# Instance (player)
 player_sprite = pygame.image.load('../res/sprites/Ball1.png')
 player_pos = pygame.Vector2(config['windowMain'])
+
+# Instance (holes)
+holes_sprite = pygame.image.load('../res/sprites/Hole1.png')
+holes_pos = pygame.Vector2(12, 12)
+
 clock = pygame.time.Clock()
 isRunning = True
 while isRunning:
@@ -36,5 +43,6 @@ while isRunning:
 
         screen.fill(colors['darkGreen'])
         player = screen.blit(player_sprite, player_pos)
+        hole = screen.blit(holes_sprite, holes_pos)
         pygame.display.update()
         clock.tick(60)
