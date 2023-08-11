@@ -8,7 +8,6 @@ from pygame.locals import (
     K_RIGHT,
     K_ESCAPE,
     KEYDOWN,
-    KEYUP,
     QUIT,
 )
 
@@ -19,6 +18,7 @@ screen = pygame.display.set_mode([config['width'], config['height']])
 # Instance (player)
 player_sprite = pygame.image.load(sprites['ballOneSprite'])
 player_pos = pygame.Vector2(config['windowMain'])
+
 # Instance (holes)
 holes_sprite = pygame.image.load(sprites['holeOneSprite'])
 holes_pos = pygame.Vector2(random.randint(
@@ -32,19 +32,21 @@ while isRunning:
             if event.key == K_ESCAPE:
                 isRunning = False
             elif event.key == K_UP:
-                player_pos.y += 1*10
+                player_pos.y -= 5*1.5
             elif event.key == K_DOWN:
-                player_pos.y -= 1*10
+                player_pos.y += 5*1.5
             elif event.key == K_LEFT:
-                player_pos.x += 1*10
+                player_pos.x -= 5*1.5
             elif event.key == K_RIGHT:
-                player_pos.x -= 1*10
+                player_pos.x += 5*1.5
 
         elif event.type == QUIT:
             isRunning = False
-
-    screen.fill(colors['darkGreen'])
-    hole = screen.blit(holes_sprite, holes_pos)
-    player = screen.blit(player_sprite, player_pos)
+        screen.fill(colors['darkGreen'])
+        hole = screen.blit(holes_sprite, holes_pos)
+        player = screen.blit(player_sprite, player_pos)
+        
+        if player.collidepoint(hole.centerx, hole.centery):
+            print('Collision')
     pygame.display.update()
     clock.tick(60)
