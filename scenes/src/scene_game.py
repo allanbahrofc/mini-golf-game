@@ -22,10 +22,10 @@ player_pos = pygame.Vector2(config['windowMain'])
 # Instance (holes)
 holes_sprite = pygame.image.load(sprites['holeOneSprite'])
 holes_pos = pygame.Vector2(random.randint(
-    0, config['width']), random.randint(0, config['height']))
+    0, config['width']-40), random.randint(0, config['height'])-20)
 
 # Instance (walls) TODO
-wall_background_sprite = pygame.image.load(sprites['background'])
+wall_background_sprite = pygame.image.load(walls['background'])
 wall_background_pos = pygame.Vector2(100,100)
 
 clock = pygame.time.Clock()
