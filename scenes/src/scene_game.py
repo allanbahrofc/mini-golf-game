@@ -47,9 +47,10 @@ while isRunning:
         elif event.type == QUIT:
             isRunning = False
         screen.fill(colors['darkGreen'])
-        hole = screen.blit(holes_sprite, holes_pos)
-        player = screen.blit(player_sprite, player_pos)
-
+        wallBehavior = screen.blit(wall_background_sprite, wall_background_pos)
+        holeBehavior = screen.blit(holes_sprite, holes_pos)
+        playerBehavior = screen.blit(player_sprite, player_pos)
+        
         # Introduce [Collision] TODO
         if player.collidepoint(hole.centerx, hole.centery):
             print('Collision')
