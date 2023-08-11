@@ -28,7 +28,7 @@ while isRunning:
     for event in pygame.event.get():
         if event.type == QUIT:
             isRunning = False
-        
+
     keys = pygame.key.get_pressed()
 
     # Keys
@@ -53,7 +53,7 @@ while isRunning:
         player_pos.x -= 1*player_velocity
     elif player_dir == 'RIGHT':
         player_pos.x += 1*player_velocity
-    
+
     screen.fill(colors['darkGreen'])
     # wallBehavior = screen.blit(wall_background_sprite, wall_background_pos)
     holeBehavior = screen.blit(holes_sprite, holes_pos)
