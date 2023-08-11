@@ -24,6 +24,10 @@ holes_sprite = pygame.image.load(sprites['holeOneSprite'])
 holes_pos = pygame.Vector2(random.randint(
     0, config['width']), random.randint(0, config['height']))
 
+# Instance (walls) TODO
+wall_background_sprite = pygame.image.load(sprites['background'])
+wall_background_pos = pygame.Vector2(100,100)
+
 clock = pygame.time.Clock()
 isRunning = True
 while isRunning:
@@ -45,7 +49,8 @@ while isRunning:
         screen.fill(colors['darkGreen'])
         hole = screen.blit(holes_sprite, holes_pos)
         player = screen.blit(player_sprite, player_pos)
-        
+
+        # Introduce [Collision] TODO
         if player.collidepoint(hole.centerx, hole.centery):
             print('Collision')
     pygame.display.update()
