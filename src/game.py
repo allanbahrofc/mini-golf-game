@@ -6,12 +6,12 @@ import config
 pygame.init()
 title = pygame.display.set_caption('Mini Golf')
 screen = pygame.display.set_mode([config.window['width'], config.window['height']])
+clock = pygame.time.Clock()
 
 # Instance (entity)
 playerBehavior = entityPlayerBehavior.entityPlayer(50, 25)
 holeBehavior = entityHoleBehavior.entityHole()
 
-clock = pygame.time.Clock()
 isRunning = True
 while isRunning:
     for event in pygame.event.get():
@@ -23,5 +23,6 @@ while isRunning:
     screen.blit(playerBehavior.sprite, playerBehavior.pos)
 
     playerBehavior.movePlayer()
+    # holeBehavior.checkCollision(playerBehavior.pos)
     pygame.display.update()
     clock.tick(60)

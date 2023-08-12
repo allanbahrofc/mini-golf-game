@@ -12,7 +12,7 @@ class entityHole(pygame.sprite.Sprite):
         self.rect = self.sprite.get_rect()
   
     def checkCollision(self, collider):
-        if self.rect.colliderect(collider):
+        if self.rect.collidepoint(collider.x, collider.y):
             print('collider')
 
     def delete(self):
