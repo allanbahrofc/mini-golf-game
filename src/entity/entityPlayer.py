@@ -34,9 +34,9 @@ class entityPlayer(pygame.sprite.Sprite):
         elif self.direction == 'RIGHT':
             self.pos.x += 1*self.velocity
 
-    def checkCollision(self, collider):
-        if self.rect.collidepoint(collider.x, collider.y):
-            print('collider')
+    # def checkCollision(self, collider):
+    #     if self.rect.collidepoint(collider.x, collider.y):
+    #         print('collider')
 
     def killPlayer(self):
         self.kill()
