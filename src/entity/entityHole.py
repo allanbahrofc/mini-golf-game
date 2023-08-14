@@ -2,6 +2,7 @@ from config import *
 import random
 import pygame
 
+
 class entityHole(pygame.sprite.Sprite):
 
     def __init__(self):
@@ -10,10 +11,11 @@ class entityHole(pygame.sprite.Sprite):
         self.pos = pygame.Vector2(self.x, self.y)
         self.sprite = pygame.image.load(sprites['holeOneSprite'])
         self.rect = self.sprite.get_rect()
-  
-    # def checkCollision(self, collider):
-    #     if self.rect.collidepoint(collider.x, collider.y):
-    #         print('collider')
 
+    def checkCollision(self, collider):
+        if self.rect.center == collider.rect.center:
+            print('collide objects affected')
+        else:
+            print('not collide')
     def delete(self):
         self.kill()

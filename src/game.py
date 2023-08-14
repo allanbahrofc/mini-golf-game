@@ -27,7 +27,7 @@ while isRunning:
     displayScreen.blit(playerBehavior.sprite, playerBehavior.pos)
 
     playerBehavior.movePlayer()
-    # holeBehavior.checkCollision(playerBehavior.pos) - TODO
+    holeBehavior.checkCollision(playerBehavior)
     pygame.display.update()
     clockFPS.tick(60)
     
