@@ -11,7 +11,6 @@ class entityHole(pygame.sprite.Sprite):
         self.pos = pygame.Vector2(self.x, self.y)
         self.sprite = pygame.image.load(sprites['holeOneSprite'])
         self.rect = self.sprite.get_rect()
-
     
     def delete(self):
         self.kill()
