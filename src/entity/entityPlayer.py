@@ -10,9 +10,9 @@ class entityPlayer(pygame.sprite.Sprite):
         self.pos = pygame.Vector2(self.x, self.y)
         self.sprite = pygame.image.load(sprites['ballOneSprite'])
         self.rect = self.sprite.get_rect()
-        self.velocity = 1.1
+        self.velocity = 1.5
         self.direction = None
-
+    
     def movePlayer(self):
         keys = pygame.key.get_pressed()
 
@@ -33,10 +33,10 @@ class entityPlayer(pygame.sprite.Sprite):
             self.pos.x -= 1*self.velocity
         elif self.direction == 'RIGHT':
             self.pos.x += 1*self.velocity
-
+            
     # def checkCollision(self, collider):
     #     if self.rect.collidepoint(collider.x, collider.y):
     #         print('collider')
-
+    
     def killPlayer(self):
         self.kill()

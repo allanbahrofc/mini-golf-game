@@ -1,28 +1,33 @@
-import pygame
 import entity.entityPlayer as entityPlayerBehavior
 import entity.entityHole as entityHoleBehavior
 import config
+import pygame
 
+# (Init)
 pygame.init()
-title = pygame.display.set_caption('Mini Golf')
-screen = pygame.display.set_mode([config.window['width'], config.window['height']])
-clock = pygame.time.Clock()
 
-# Instance (entity)
+# (Default)
+titleScreen = pygame.display.set_caption('Mini Golf')
+clockFPS = pygame.time.Clock()
+displayScreen = pygame.display.set_mode([config.window['width'], config.window['height']])
+
+# (Prefab)
 playerBehavior = entityPlayerBehavior.entityPlayer(50, 25)
 holeBehavior = entityHoleBehavior.entityHole()
 
+# (Loop)
 isRunning = True
 while isRunning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             isRunning = False
 
-    screen.fill(config.colors['darkGreen'])
-    screen.blit(holeBehavior.sprite, holeBehavior.pos)
-    screen.blit(playerBehavior.sprite, playerBehavior.pos)
+    displayScreen.fill(config.colors['darkGreen'])
+    displayScreen.blit(holeBehavior.sprite, holeBehavior.pos)
+    displayScreen.blit(playerBehavior.sprite, playerBehavior.pos)
 
     playerBehavior.movePlayer()
-    # holeBehavior.checkCollision(playerBehavior.pos)
+    # holeBehavior.checkCollision(playerBehavior.pos) - TODO
     pygame.display.update()
-    clock.tick(60)
+    clockFPS.tick(60)
+    
