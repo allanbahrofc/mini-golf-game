@@ -2,6 +2,7 @@ from pygame.locals import *
 from config import *
 import pygame
 
+
 class entityPlayer(pygame.sprite.Sprite):
 
     def __init__(self, x, y):
@@ -12,7 +13,7 @@ class entityPlayer(pygame.sprite.Sprite):
         self.rect = self.sprite.get_rect()
         self.velocity = 1.5
         self.direction = None
-    
+
     def movePlayer(self):
         keys = pygame.key.get_pressed()
 
@@ -33,10 +34,12 @@ class entityPlayer(pygame.sprite.Sprite):
             self.pos.x -= 1*self.velocity
         elif self.direction == 'RIGHT':
             self.pos.x += 1*self.velocity
-            
-    # def checkCollision(self, collider):
-    #     if self.rect.collidepoint(collider.x, collider.y):
-    #         print('collider')
-    
+
+    def checkCollision(self, collider):
+        if self.rect.center == collider.rect.center:
+            print('collide objects affected')
+        else:
+            print('not collide')
+
     def killPlayer(self):
         self.kill()

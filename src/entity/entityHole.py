@@ -12,10 +12,6 @@ class entityHole(pygame.sprite.Sprite):
         self.sprite = pygame.image.load(sprites['holeOneSprite'])
         self.rect = self.sprite.get_rect()
 
-    def checkCollision(self, collider):
-        if self.rect.center == collider.rect.center:
-            print('collide objects affected')
-        else:
-            print('not collide')
+    
     def delete(self):
         self.kill()
