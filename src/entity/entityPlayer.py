@@ -11,6 +11,8 @@ class entityPlayer(pygame.sprite.Sprite):
         self.pos = pygame.Vector2(self.x, self.y)
         self.sprite = pygame.image.load(sprites['ballOneSprite'])
         self.rect = self.sprite.get_rect()
+        self.rect.x = self.pos.x
+        self.rect.y = self.pos.y
         self.velocity = 1.5
         self.direction = None
 
