@@ -25,9 +25,8 @@ while isRunning:
     displayScreen.fill(config.colors['darkGreen'])
     displayScreen.blit(holeBehavior.sprite, holeBehavior.pos)
     displayScreen.blit(playerBehavior.sprite, playerBehavior.pos)
-
+    
     playerBehavior.movePlayer()
-    playerBehavior.checkCollision(holeBehavior)
-    pygame.display.update()
+    pygame.display.flip()
     clockFPS.tick(60)
     
