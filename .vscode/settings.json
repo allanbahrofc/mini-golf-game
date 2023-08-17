@@ -8,6 +8,7 @@
         "dotenv",
         "KEYDOWN",
         "KEYUP",
-        "pygame"
+        "pygame",
+        "spritecollide"
     ]
 }

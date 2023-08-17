@@ -1,3 +1,4 @@
+from typing import Any
 from pygame.locals import *
 from config import *
 import pygame
@@ -5,14 +6,14 @@ import pygame
 
 class entityPlayer(pygame.sprite.Sprite):
 
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.x = 150
+        self.y = 225
         self.pos = pygame.Vector2(self.x, self.y)
-        self.sprite = pygame.image.load(sprites['ballOneSprite'])
-        self.rect = self.sprite.get_rect()
-        self.rect.x = self.pos.x
-        self.rect.y = self.pos.y
+        self.image = pygame.image.load(sprites['ballOneSprite'])
+        self.rect = self.image.get_rect()
+        self.mask = pygame.mask.from_surface(self.image)
         self.velocity = 1.5
         self.direction = None
 
@@ -36,6 +37,9 @@ class entityPlayer(pygame.sprite.Sprite):
             self.pos.x -= 1*self.velocity
         elif self.direction == 'RIGHT':
             self.pos.x += 1*self.velocity
-
+    def update(self, *args: Any, **kwargs: Any) -> None:
+        self.movePlayer()
+        return super().update(*args, **kwargs)
+    
     def killPlayer(self):
         self.kill()
