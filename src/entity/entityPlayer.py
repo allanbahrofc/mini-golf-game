@@ -8,12 +8,13 @@ class entityPlayer(pygame.sprite.Sprite):
 
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.x = 150
-        self.y = 225
+        self.x = 0
+        self.y = 0
         self.pos = pygame.Vector2(self.x, self.y)
         self.image = pygame.image.load(sprites['ballOneSprite'])
         self.rect = self.image.get_rect()
         self.mask = pygame.mask.from_surface(self.image)
+        self.mask_image = self.mask.to_surface()
         self.velocity = 1.5
         self.direction = None
 
@@ -37,9 +38,8 @@ class entityPlayer(pygame.sprite.Sprite):
             self.pos.x -= 1*self.velocity
         elif self.direction == 'RIGHT':
             self.pos.x += 1*self.velocity
-    def update(self, *args: Any, **kwargs: Any) -> None:
+    def update(self) -> None:
         self.movePlayer()
-        return super().update(*args, **kwargs)
     
     def killPlayer(self):
         self.kill()

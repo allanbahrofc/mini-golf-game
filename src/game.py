@@ -12,13 +12,13 @@ clockFPS = pygame.time.Clock()
 displayScreen = pygame.display.set_mode([config.window['width'], config.window['height']])
 
 # (Prefab)
-entityPlayerGroup = pygame.sprite.Group()
-entityObstaclesGroup = pygame.sprite.Group()
+entityGroup = pygame.sprite.Group()
+obstacleGroup = pygame.sprite.Group()
 playerBehavior = entityPlayerBehavior.entityPlayer()
 holeBehavior = entityHoleBehavior.entityHole()
 
-entityPlayerGroup.add(playerBehavior)
-entityObstaclesGroup.add(holeBehavior)
+entityGroup.add(playerBehavior)
+obstacleGroup.add(holeBehavior)
 # (Loop)
 isRunning = True
 while isRunning:
@@ -26,10 +26,12 @@ while isRunning:
         if event.type == pygame.QUIT:
             isRunning = False
 
-        displayScreen.fill(config.colors['darkGreen'])
-        playerBehavior.movePlayer()
-        entityPlayerGroup.draw(displayScreen)
-        entityObstaclesGroup.draw(displayScreen)
-        pygame.display.flip()
-        clockFPS.tick(60)
-    
+    displayScreen.fill(config.colors['darkGreen'])
+    displayScreen.blit(holeBehavior.image, holeBehavior.pos)
+    displayScreen.blit(playerBehavior.image, playerBehavior.pos)
+    if pygame.sprite.spritecollide(playerBehavior, holeBehavior):
+        print('collided')
+    playerBehavior.update()
+    pygame.display.flip()
+    clockFPS.tick(60)
+

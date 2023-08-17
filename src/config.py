@@ -12,8 +12,8 @@ colors = {
 }
 
 sprites = {
-    'ballOneSprite': '../res/sprites/Ball1.png',
-    'holeOneSprite': '../res/sprites/Hole1.png',
+    'ballOneSprite': '../res/sprites/Ball.png',
+    'holeOneSprite': '../res/sprites/Hole.png',
 }
 walls = {
     'background': '../res/tiles/background.png',
