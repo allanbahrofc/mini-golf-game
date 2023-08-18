@@ -12,8 +12,15 @@ class entityHole(pygame.sprite.Sprite):
         self.pos = pygame.Vector2(self.x, self.y)
         self.image = pygame.image.load(sprites['holeOneSprite'])
         self.rect = self.image.get_rect()
-        self.mask = pygame.mask.from_surface(self.image)
-        self.mask_image = self.mask.to_surface()
-  
+        self.rect.x = self.pos.x
+        self.rect.y = self.pos.y
+
+    def respawnHole(self):
+        # Reset the hole position and image to a new one
+        self.pos.x = random.randint(0, window['width']-25)
+        self.pos.y = random.randint(0, window['height']-25)
+        self.rect.x = self.pos.x
+        self.rect.y = self.pos.y
+
     def delete(self):
         self.kill()

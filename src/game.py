@@ -9,7 +9,8 @@ pygame.init()
 # (Default)
 titleScreen = pygame.display.set_caption('Mini Golf')
 clockFPS = pygame.time.Clock()
-displayScreen = pygame.display.set_mode([config.window['width'], config.window['height']])
+displayScreen = pygame.display.set_mode(
+    [config.window['width'], config.window['height']])
 
 # (Prefab)
 entityGroup = pygame.sprite.Group()
@@ -25,13 +26,12 @@ while isRunning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             isRunning = False
-
+    
     displayScreen.fill(config.colors['darkGreen'])
-    displayScreen.blit(holeBehavior.image, holeBehavior.pos)
-    displayScreen.blit(playerBehavior.image, playerBehavior.pos)
-    if pygame.sprite.spritecollide(playerBehavior, holeBehavior):
-        print('collided')
+    if holeBehavior.rect.colliderect(playerBehavior):
+        holeBehavior.respawnHole()
+    entityGroup.draw(displayScreen)
+    obstacleGroup.draw(displayScreen)
     playerBehavior.update()
     pygame.display.flip()
     clockFPS.tick(60)
-
