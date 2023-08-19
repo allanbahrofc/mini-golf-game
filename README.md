@@ -8,4 +8,4 @@
 > - [x] pygame.event 
 > - [x] pygame.display
 > - [x] pygame.clock
-> - [ ] pygame.mixer
+> - [x] pygame.mixer
