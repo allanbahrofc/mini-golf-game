@@ -1,7 +1,7 @@
 #### mini-golf-game
 > A golf-game based in python and pygame. That introduce some levels to get in the objective with crossing a labirint.
 
-#### Using in pygame
+> #### From Pygame
 > - [x] pygame.sprite
 > - [x] pygame.locals
 > - [x] pygame.key
@@ -10,7 +10,7 @@
 > - [x] pygame.clock
 > - [x] pygame.mixer
 
-### Implementations
+> ### Implementations
 > - [x] Moviment using Vector2
 > - [x] Sprites
 > - [x] Collide Rect for Collision
