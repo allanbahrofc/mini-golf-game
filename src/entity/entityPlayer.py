@@ -1,4 +1,3 @@
-from typing import Any
 from pygame.locals import *
 from config import *
 import pygame

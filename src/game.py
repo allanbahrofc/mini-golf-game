@@ -5,7 +5,7 @@ import pygame
 
 # (Init)
 pygame.init()
-
+pygame.mixer.music.load('')
 # (Default)
 titleScreen = pygame.display.set_caption('Mini Golf')
 clockFPS = pygame.time.Clock()
