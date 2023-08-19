@@ -20,6 +20,7 @@ holeBehavior = entityHoleBehavior.entityHole()
 
 entityGroup.add(playerBehavior)
 obstacleGroup.add(holeBehavior)
+
 # (Loop)
 isRunning = True
 while isRunning:
