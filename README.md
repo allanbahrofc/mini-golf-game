@@ -3,9 +3,9 @@
 
 #### Using in pygame
 > - [x] pygame.sprite
-> - [ ] pygame.locals
+> - [x] pygame.locals
+> - [x] pygame.key
+> - [x] pygame.event 
+> - [x] pygame.display
+> - [x] pygame.clock
 > - [ ] pygame.mixer
-> - [ ] pygame.key
-> - [ ] pygame.display
-> - [ ] pygame.clock
-> - [ ] pygame.event 
