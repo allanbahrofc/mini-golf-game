@@ -14,4 +14,4 @@
 > - [x] Moviment using Vector2
 > - [x] Sprites
 > - [x] Collide Rect for Collision
-> - [] Next Step?
+> - [ ] Next Step?
