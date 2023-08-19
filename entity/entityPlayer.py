@@ -41,8 +41,13 @@ class entityPlayer(pygame.sprite.Sprite):
         self.rect.x = self.pos.x
         self.rect.y = self.pos.y
 
+    def collisionWindow(self):
+        if self.pos.x > window['width'] or self.pos.x < 0:
+            self.killPlayer()
+
     def update(self) -> None:
         self.movePlayer()
+        self.collisionWindow()
 
     def killPlayer(self):
         self.kill()
