@@ -1,4 +1,4 @@
-![banner](./ui/banner.png)
+![banner](./ui/banner_mgg.png)
 > #### Mini Golf Game in Python
 > A golf-game based in python and pygame. That introduce some levels to get in the objective with crossing a labirint.
 > Objective: a golf game with simple interface and gameplay
