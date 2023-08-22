@@ -1,6 +1,4 @@
-<div style="display:flex; justify-content:center; align-items: center;">
-
-![banner](./ui/banner_mgg.png)
+![banner](./ui/banner.png)
 > #### Mini Golf Game in Python
 > A golf-game based in python and pygame. That introduce some levels to get in the objective with crossing a labirint.
 > Objective: a golf game with simple interface and gameplay
@@ -21,4 +19,3 @@
 > - [x] Sprites
 > - [x] Collide Rect for Collision
 > - [ ] Next Step?
-</div>
