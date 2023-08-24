@@ -36,6 +36,8 @@ while isRunning:
     if holeBehavior.rect.colliderect(playerBehavior):
         holeBehavior.respawnHole()
         holesQntd += 1
+    if playerBehavior.gameOver == True:
+        isRunning = False
     displayScreen.blit(holesFont, (200,70))
     entityGroup.draw(displayScreen)
     obstacleGroup.draw(displayScreen)

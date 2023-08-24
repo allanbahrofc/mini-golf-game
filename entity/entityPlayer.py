@@ -16,6 +16,7 @@ class entityPlayer(pygame.sprite.Sprite):
         self.rect.y = self.pos.y
         self.velocity = 1.5
         self.direction = None
+        self.gameOver = False
 
     def movePlayer(self):
         keys = pygame.key.get_pressed()
@@ -41,13 +42,14 @@ class entityPlayer(pygame.sprite.Sprite):
         self.rect.x = self.pos.x
         self.rect.y = self.pos.y
 
-    def collisionWindow(self):
+    def collisionBorders(self):
         if self.pos.x > window['width'] or self.pos.x < 0 or self.pos.y > window['height'] or self.pos.y < 0:
             self.killPlayer()
 
     def update(self) -> None:
         self.movePlayer()
-        self.collisionWindow()
+        self.collisionBorders()
 
     def killPlayer(self):
+        self.gameOver = True
         self.kill()
