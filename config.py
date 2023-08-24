@@ -4,11 +4,8 @@ window = {
 }
 
 colors = {
-    'lightGreen': (113, 247, 159),
-    'lightSalmon': (243, 211, 189),
-    'lightPurple': (139, 114, 142),
-    'darkGreen': (74, 124, 89),
-    'darkPurple': (34, 3, 31)
+    'darkGreen': (51, 71, 54),
+    'darkGreen2': (62, 86, 65),
 }
 
 sprites = {
