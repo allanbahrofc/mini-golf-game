@@ -5,7 +5,12 @@ import pygame
 
 # (Init)
 pygame.init()
+pygame.font.init()
+pygame.font.get_init()
+
 # (Default)
+holesQntd = 0
+fontScreen = pygame.font.SysFont("Arial Black", 20)
 titleScreen = pygame.display.set_caption('Mini Golf')
 clockFPS = pygame.time.Clock()
 displayScreen = pygame.display.set_mode(
@@ -26,10 +31,12 @@ while isRunning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             isRunning = False
-    
-    displayScreen.fill(config.colors['darkGreen'])
+    holesFont = fontScreen.render(f"Hole {holesQntd}", True, config.colors['lightPurple'])
+    displayScreen.fill(config.colors['darkPurple'])
     if holeBehavior.rect.colliderect(playerBehavior):
         holeBehavior.respawnHole()
+        holesQntd += 1
+    displayScreen.blit(holesFont, (200,70))
     entityGroup.draw(displayScreen)
     obstacleGroup.draw(displayScreen)
     playerBehavior.update()
