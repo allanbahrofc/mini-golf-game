@@ -5,12 +5,12 @@ import pygame
 
 # (Init)
 pygame.init()
+pygame.mixer.init()
+pygame.mixer.music.set_volume(0.2)
 pygame.font.init()
 pygame.font.get_init()
 
 # (Default)
-holesQntd = 0
-fontScreen = pygame.font.SysFont("Arial Black", 20)
 titleScreen = pygame.display.set_caption('Mini Golf')
 clockFPS = pygame.time.Clock()
 displayScreen = pygame.display.set_mode(
@@ -25,6 +25,8 @@ holeBehavior = entityHoleBehavior.entityHole()
 entityGroup.add(playerBehavior)
 obstacleGroup.add(holeBehavior)
 
+holesQntd = 0
+fontScreen = pygame.font.SysFont("Arial Black", 20)
 # (Loop)
 isRunning = True
 while isRunning:
@@ -35,6 +37,8 @@ while isRunning:
     displayScreen.fill(config.colors['darkPurple'])
     if holeBehavior.rect.colliderect(playerBehavior):
         holeBehavior.respawnHole()
+        pygame.mixer.music.load('./audio/hole_one.wav')
+        pygame.mixer.music.play()
         holesQntd += 1
     if playerBehavior.gameOver == True:
         isRunning = False
