@@ -33,8 +33,8 @@ while isRunning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             isRunning = False
-    holesFont = fontScreen.render(f"Hole {holesQntd}", True, config.colors['lightPurple'])
-    displayScreen.fill(config.colors['darkPurple'])
+    holesFont = fontScreen.render(f"Hole {holesQntd}", True, config.colors['darkGreen'])
+    displayScreen.fill(config.colors['darkGreen2'])
     if holeBehavior.rect.colliderect(playerBehavior):
         holeBehavior.respawnHole()
         pygame.mixer.music.load('./audio/hole_one.wav')
