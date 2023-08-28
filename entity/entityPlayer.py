@@ -21,13 +21,13 @@ class entityPlayer(pygame.sprite.Sprite):
     def movePlayer(self):
         keys = pygame.key.get_pressed()
 
-        if keys[K_UP]:
+        if keys[K_UP] or keys[K_w]:
             self.direction = 'UP'
-        elif keys[K_DOWN]:
+        elif keys[K_DOWN] or keys[K_s]:
             self.direction = 'DOWN'
-        elif keys[K_LEFT]:
+        elif keys[K_LEFT] or keys[K_a]:
             self.direction = 'LEFT'
-        elif keys[K_RIGHT]:
+        elif keys[K_RIGHT]  or keys[K_d]:
             self.direction = 'RIGHT'
 
         if self.direction == 'UP':
