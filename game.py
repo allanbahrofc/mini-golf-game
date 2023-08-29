@@ -25,7 +25,6 @@ holeBehavior = entityHoleBehavior.entityHole()
 entityGroup.add(playerBehavior)
 obstacleGroup.add(holeBehavior)
 
-holesQntd = 0
 fontScreen = pygame.font.SysFont("Arial Black", 20)
 # (Loop)
 isRunning = True
@@ -33,13 +32,13 @@ while isRunning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             isRunning = False
-    holesFont = fontScreen.render(f"Hole {holesQntd}", True, config.colors['darkGreen'])
+    holesFont = fontScreen.render(f"Hole {playerBehavior.score}", True, config.colors['darkGreen'])
     displayScreen.fill(config.colors['darkGreen2'])
     if holeBehavior.rect.colliderect(playerBehavior):
         holeBehavior.respawnHole()
         pygame.mixer.music.load('./audio/hole_one.wav')
         pygame.mixer.music.play()
-        holesQntd += 1
+        playerBehavior.score += 1
     if playerBehavior.gameOver == True:
         isRunning = False
     displayScreen.blit(holesFont, (200,70))
