@@ -7,8 +7,8 @@ class entityPlayer(pygame.sprite.Sprite):
 
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.x = 0
-        self.y = 0
+        self.x = 50
+        self.y = 80
         self.pos = pygame.Vector2(self.x, self.y)
         self.image = pygame.image.load(sprites['ballOneSprite'])
         self.rect = self.image.get_rect()
@@ -45,9 +45,11 @@ class entityPlayer(pygame.sprite.Sprite):
 
     def collisionBorders(self):
         if self.pos.x > window['width'] or self.pos.x < 0 or self.pos.y > window['height'] or self.pos.y < 0:
-            self.pos.xy = (0,0)
+            self.pos.xy = (50,80)
             self.direction = None
             self.score = 0
+            self.velocity = 1.5
+            
 
     def update(self) -> None:
         self.movePlayer()
